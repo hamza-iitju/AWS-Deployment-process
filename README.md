@@ -301,6 +301,16 @@ That's it! You have successfully connected your PostgreSQL database to your Lara
 	
 	Replace your-bucket-name with the name of your S3 bucket.
 
+- Create an S3 bucket: To create a new S3 bucket, you can use the aws s3api command along with the create-bucket subcommand. For example, to create a bucket with the name "my-new-bucket" in the us-west-2 region, you can run the following command:
+	>aws s3api create-bucket --bucket my-new-bucket --region us-west-2
+
+	Replace my-new-bucket with the desired name for your S3 bucket, and us-west-2 with the desired region.
+
+- Set other options (optional): You can also set other options for your S3 bucket using additional options with the create-bucket subcommand. For example, to enable versioning for your S3 bucket, you can add the --versioning-configuration option as follows:
+	>aws s3api create-bucket --bucket my-new-bucket --region us-west-2 --versioning-configuration Status=Enabled
+
+	This will enable versioning for your S3 bucket.
+
 - Perform actions on your S3 bucket: Once you have accessed your S3 bucket, you can perform various actions on it, such as uploading files, downloading files, and setting permissions. You can do this using the aws s3 command along with various subcommands and options. For example, to upload a file to your S3 bucket, you can run the following command:
 	>aws s3 cp /path/to/local/file s3://your-bucket-name/path/to/remote/file
 
