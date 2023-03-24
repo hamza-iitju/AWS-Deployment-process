@@ -37,6 +37,7 @@
  9. Create .pem file from EC2 instance
  10. Pull code from gitlab using deploy token into the EC2 instance
  11. Connect postgres database into laravel & migrate
+ 12. Access your S3 bucket using the AWS CLI
 
     
 **Details process of deployment:**
@@ -286,3 +287,24 @@ That's it! You have successfully pulled code from GitLab using a deploy token in
 	>php artisan migrate –seed
 
 That's it! You have successfully connected your PostgreSQL database to your Laravel application and run database migrations. You can now use the database in your Laravel application.
+
+**12. Access your S3 bucket using the AWS CLI:** To access your S3 bucket using the AWS CLI, you can follow these steps:
+- Install the AWS CLI: If you haven't already installed the AWS CLI, you can download and install it from the AWS CLI website (https://aws.amazon.com/cli/).
+- Configure the AWS CLI: Once you have installed the AWS CLI, you need to configure it with your AWS credentials (access key ID and secret access key). You can do this by running the aws configure command in your terminal and entering your credentials when prompted.
+- List your S3 buckets: To see a list of all your S3 buckets, you can run the following command in your terminal:
+	>aws s3 ls
+
+	This will list all your S3 buckets along with their creation dates.
+
+- Access your S3 bucket: To access a specific S3 bucket, you can use the aws s3 command followed by the S3 bucket name. For example, to list all the objects in an S3 bucket, you can run the following command:
+	>aws s3 ls s3://your-bucket-name
+	
+	Replace your-bucket-name with the name of your S3 bucket.
+
+- Perform actions on your S3 bucket: Once you have accessed your S3 bucket, you can perform various actions on it, such as uploading files, downloading files, and setting permissions. You can do this using the aws s3 command along with various subcommands and options. For example, to upload a file to your S3 bucket, you can run the following command:
+	>aws s3 cp /path/to/local/file s3://your-bucket-name/path/to/remote/file
+
+	Replace /path/to/local/file with the path to the file you want to upload and your-bucket-name/path/to/remote/file with the path to the destination folder in your S3 bucket where you want to upload the file.
+
+ 
+Note that the actions you can perform on your S3 bucket depend on the permissions assigned to your AWS account and the permissions you have set for the objects and folders in your bucket.
